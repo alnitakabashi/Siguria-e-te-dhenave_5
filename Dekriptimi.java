@@ -35,7 +35,9 @@ public class Dekriptimi {
         public String decrypt(String ciphertext) {
         //Hiqni çdo karakter jo shkronje nga çelësi
         ciphertext = ciphertext.replaceAll("[^a-zA-Z]", "").toUpperCase();
-
+            
+        //StringBuilder në Java është një klasë që përdoret për të krijuar një varg karakteresh të ndryshueshëm.
+        //Deshifrimi i  çifteve te shkronjave duke përdorur çelësin e matrices
         StringBuilder plaintext = new StringBuilder();
         for (int i = 0; i < ciphertext.length(); i += 2) {
             char a = ciphertext.charAt(i);
@@ -52,4 +54,21 @@ public class Dekriptimi {
                     }
                 }
             }
+            if (row1 == row2) {
+                // I njejti rresht
+                plaintext.append(matrica[row1][(col1 + 4) % 5]);
+                plaintext.append(matrica[row2][(col2 + 4) % 5]);
+            } else if (col1 == col2) {
+                // E njejta kolone
+                plaintext.append(matrica[(row1 + 4) % 5][col1]);
+                plaintext.append(matrica[(row2 + 4) % 5][col2]);
+            } else {
+
+                plaintext.append(matrica[row1][col2]);
+                plaintext.append(matrica[row2][col1]);
+            }
+        }
+
+        return plaintext.toString();
+    }
 
