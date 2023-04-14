@@ -21,3 +21,14 @@ public class Dekriptimi {
                 }
             }
         }
+         private boolean contains(char c) {
+        for (int row = 0; row < 5; row++) {
+            for (int col = 0; col < 5; col++) {
+                if (matrica[row][col] == c) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
