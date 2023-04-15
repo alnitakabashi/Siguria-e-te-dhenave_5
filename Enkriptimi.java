@@ -29,3 +29,22 @@ private boolean contains(char c){
     }
   return false;
 }
+   public String encrypt(String plaintext) {
+        // Remove any non-letter characters from the plaintext and convert to uppercase
+        plaintext = plaintext.replaceAll("[^a-zA-Z]", "").toUpperCase();
+
+        // Add an X between consecutive identical letters and pad with X if necessary
+        StringBuilder sb = new StringBuilder();
+        sb.append(plaintext.charAt(0));
+        for (int i = 1; i < plaintext.length(); i++) {
+            char prev = sb.charAt(sb.length() - 1);
+            char curr = plaintext.charAt(i);
+            if (prev == curr) {
+                sb.append('X');
+            }
+            sb.append(curr);
+        }
+        if (sb.length() % 2 != 0) {
+            sb.append('X');
+        }
+
