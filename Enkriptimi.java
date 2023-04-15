@@ -81,5 +81,18 @@ private boolean contains(char c){
 
         return ciphertext.toString();
     }
-
+public static void main(String[]args){
+  Scanner scanner = new Scanner(System.in);
+  
+  System.out.print("Enter the key: "):
+  Sring key = scanner.nextLine();
+  
+  System.out.print("Enter the plaintext: ");
+  String plaintext = scanne.nextLine();
+  
+  Enkriptimi cipher = new Enkriptimi (key);
+  String ciphertext = cipher.encrypt(plaintext);
+  
+  Syste.out.println("Ciphertext: " + ciphertext);
+}
 
