@@ -30,10 +30,10 @@ private boolean contains(char c){
   return false;
 }
    public String encrypt(String plaintext) {
-        // Remove any non-letter characters from the plaintext and convert to uppercase
+        // Hiqni çdo karakter pa shkronjë nga teksti i thjeshtë dhe kthejeni në shkronja të mëdha
         plaintext = plaintext.replaceAll("[^a-zA-Z]", "").toUpperCase();
 
-        // Add an X between consecutive identical letters and pad with X if necessary
+        // Shto një X midis shkronjave të njëpasnjëshme identike  nëse është e nevojshme
         StringBuilder sb = new StringBuilder();
         sb.append(plaintext.charAt(0));
         for (int i = 1; i < plaintext.length(); i++) {
@@ -47,4 +47,10 @@ private boolean contains(char c){
         if (sb.length() % 2 != 0) {
             sb.append('X');
         }
+      // Enkriptoni çiftet e shkronjave duke përdorur matricen
+        StringBuilder ciphertext = new StringBuilder();
+        for (int i = 0; i < sb.length(); i += 2) {
+            char a = sb.charAt(i);
+            char b = sb.charAt(i + 1);
+
 
