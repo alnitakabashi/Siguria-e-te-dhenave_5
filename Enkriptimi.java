@@ -52,5 +52,34 @@ private boolean contains(char c){
         for (int i = 0; i < sb.length(); i += 2) {
             char a = sb.charAt(i);
             char b = sb.charAt(i + 1);
+ int row1 = -1, col1 = -1, row2 = -1, col2 = -1;
+            for (int row = 0; row < 5; row++) {
+                for (int col = 0; col < 5; col++) {
+                    if (matrica[row][col] == a) {
+                        row1 = row;
+                        col1 = col;
+                    } else if (matrica[row][col] == b) {
+                        row2 = row;
+                        col2 = col;
+                    }
+                }
+            }
+            if (row1 == row2) {
+                // Same row
+                ciphertext.append(matrica[row1][(col1 + 1) % 5]);
+                ciphertext.append(matrica[row2][(col2 + 1) % 5]);
+            } else if (col1 == col2) {
+                // Same column
+                ciphertext.append(matrica[(row1 + 1) % 5][col1]);
+                ciphertext.append(matrica[(row2 + 1) % 5][col2]);
+            } else {
+                // Rectangle
+                ciphertext.append(matrica[row1][col2]);
+                ciphertext.append(matrica[row2][col1]);
+            }
+        }
+
+        return ciphertext.toString();
+    }
 
 
