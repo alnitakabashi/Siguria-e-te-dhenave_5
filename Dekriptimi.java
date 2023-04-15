@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 
 public class Dekriptimi {
@@ -24,7 +23,8 @@ public class Dekriptimi {
                 }
             }
         }
-         // Plotësimi i pjesës tjetër të matrices me shkronjat e mbetura të alfabetit
+        
+        // Plotësimi i pjesës tjetër të matrices me shkronjat e mbetura të alfabetit
         for (char c = 'A'; c <= 'Z'; c++) {
             if (c == 'J') {
                 continue;  // Skip J
@@ -36,13 +36,11 @@ public class Dekriptimi {
                     row++;
                     col = 0;
                 }
-
             }
         }
     }
 
-
-         private boolean contains(char c) {
+        private boolean contains(char c) {
         for (int row = 0; row < 5; row++) {
             for (int col = 0; col < 5; col++) {
                 if (matrica[row][col] == c) {
@@ -100,6 +98,7 @@ public class Dekriptimi {
             System.out.println();
         }
     }
+    
       public static void main(String[] args) {
                 Scanner scanner = new Scanner(System.in);
                 System.out.print("Enter the key: ");
