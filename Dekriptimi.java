@@ -80,12 +80,20 @@ public class Dekriptimi {
                 plaintext.append(matrica[(row1 + 4) % 5][col1]);
                 plaintext.append(matrica[(row2 + 4) % 5][col2]);
             } else {
-
                 plaintext.append(matrica[row1][col2]);
                 plaintext.append(matrica[row2][col1]);
             }
         }
 
         return plaintext.toString();
+    }
+    
+    public void displaymatrica() {
+        for (int row = 0; row < 5; row++) {
+            for (int col = 0; col<5;col++) {
+                System.out.print(matrica[row][col] + " ");
+            }
+            System.out.println();
+        }
     }
 
