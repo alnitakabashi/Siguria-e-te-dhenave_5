@@ -115,4 +115,19 @@ public class Dekriptimi {
             System.out.println();
         }
     }
+      public static void main(String[] args) {
+                Scanner scanner = new Scanner(System.in);
+                System.out.print("Enter the key: ");
+                String key = scanner.nextLine();
+                Dekriptimi cipher = new Dekriptimi (key);
+
+                System.out.println("\nKey Square:");
+                cipher.displaymatrica();
+                System.out.print("\nEnter the ciphertext: ");
+                String ciphertext = scanner.nextLine();
+                String plaintext = cipher.decrypt(ciphertext);
+                System.out.println("Plaintext: " + plaintext);
+            }
+}
+
 
