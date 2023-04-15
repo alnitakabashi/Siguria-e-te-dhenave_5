@@ -93,6 +93,6 @@ public static void main(String[]args){
   Enkriptimi cipher = new Enkriptimi (key);
   String ciphertext = cipher.encrypt(plaintext);
   
-  Syste.out.println("Ciphertext: " + ciphertext);
+  System.out.println("Ciphertext: " + ciphertext);
 }
 
