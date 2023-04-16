@@ -1,39 +1,44 @@
 import java.util.Scanner;
+
 public class Enkriptimi {
-  private char[][] matrica = new char[5][5];
-  
-  public Enkriptimi(String key){
-    key = key.replaceAll("[^a-zA-Z]","").toUpperCase();
-  }
-  int row = 0, col = 0;
-  for(int i = 0; i < key.length(); i++){
-    char c = key.charAt(i);
-    if(c == 'J'){
-      c = 'I';
-  }
-  if(!contains(c)){
-    matrica[row][col] = c;
-    col++;
-    if(col == 5){
-    row++;
-    col = 0;
+    private char[][] matrica = new char[5][5];
+
+    public Enkriptimi(String key) {
+        // Hiqni çdo karakter pa shkronjë nga çelësi
+        key = key.replaceAll("[^a-zA-Z]", "").toUpperCase();
+
+        // Inicializon matricen
+        int row = 0, col = 0;
+        for (int i = 0; i < key.length(); i++) {
+            char c = key.charAt(i);
+            if (c == 'J') {
+                c = 'I';  // Zëvendësoni J me I
+            }
+            if (!contains(c)) {
+                matrica[row][col] = c;
+                col++;
+                if (col == 5) {
+                    row++;
+                    col = 0;
+                }
+            }
+        }
+
+        // Ploteson pjesen tjeter te matrices me shkronjat e mbetura te alfabetit
+        for (char c = 'A'; c <= 'Z'; c++) {
+            if (c == 'J') {
+                continue;  // Skip J
+            }
+            if (!contains(c)) {
+                matrica[row][col] = c;
+                col++;
+                if (col == 5) {
+                    row++;
+                    col = 0;
+                }
+            }
+        }
     }
-  }
-}
-for (char c = 'A'; c <= 'Z'; c++){
-	if(c == 'J'){
-		continue;
-	}
-	if(!contains(c)){
-	   matrica[row][col] = c;
-	   col++;
- 	if(col == 5){
-	   row++;
-	   col=0;
-	}
-      }
-   }
-}
 private boolean contains(char c){
   for(int row = 0; row < 5; row++){
   for (int col = 0; col < 5; col++){
@@ -102,7 +107,7 @@ public static void main(String[]args){
   String key = scanner.nextLine();
   
   System.out.print("Enter the plaintext: ");
-  String plaintext = scanne.nextLine();
+  String plaintext = scanner.nextLine();
   
   Enkriptimi cipher = new Enkriptimi (key);
   String ciphertext = cipher.encrypt(plaintext);
