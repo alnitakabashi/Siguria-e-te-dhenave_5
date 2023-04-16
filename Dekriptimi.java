@@ -90,15 +90,6 @@ public class Dekriptimi {
         return plaintext.toString();
     }
     
-    public void displaymatrica() {
-        for (int row = 0; row < 5; row++) {
-            for (int col = 0; col<5;col++) {
-                System.out.print(matrica[row][col] + " ");
-            }
-            System.out.println();
-        }
-    }
-    
       public static void main(String[] args) {
                 Scanner scanner = new Scanner(System.in);
                 System.out.print("Enter the key: ");
