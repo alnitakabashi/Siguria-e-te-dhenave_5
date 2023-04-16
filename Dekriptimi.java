@@ -50,6 +50,15 @@ public class Dekriptimi {
         }
         return false;
     }
+    
+    public void displaymatrica() {
+        for (int row = 0; row < 5; row++) {
+            for (int col = 0; col<5;col++) {
+                System.out.print(matrica[row][col] + " ");
+            }
+            System.out.println();
+        }
+    }
         
         public String decrypt(String ciphertext) {
         //Hiqni çdo karakter jo shkronje nga çelësi
